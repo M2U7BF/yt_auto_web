@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTubeリピート再生</title>
+    <style>
+        /* (Style部分は変更なし) */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+        #controls {
+            padding: 15px;
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+        }
+        #youtubeUrl {
+            flex-grow: 1;
+            font-size: 16px;
+            padding: 8px;
+            margin-right: 10px;
+        }
+        #playButton {
+            font-size: 16px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        #player {
+            flex-grow: 1;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="controls">
+        <input type="text" id="youtubeUrl" placeholder="YouTube動画のURLを入力">
+        <button id="playButton">再生開始</button>
+    </div>
+
+    <div id="player"></div>
+
+    <script>
+        // YouTube APIスクリプトの読み込み
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player; // playerオブジェクトをグローバルで保持
+        
+        window.addEventListener('load', function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var urlFromParam = urlParams.get('url'); // 'url'パラメータの値を取得
+            var urlInput = document.getElementById('youtubeUrl');
+
+            if (urlFromParam) {
+                // デコードして入力欄にセット
+                urlInput.value = decodeURIComponent(urlFromParam);
+            }
+        });
+        // ----------------------------------------------------
+
+        // 2. API準備完了時にプレーヤーを初期化
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '100%',
+                width: '100%',
+                playerVars: {
+                    'controls': 0,
+                    'rel': 0,
+                    'showinfo': 0,
+                    'iv_load_policy': 3
+                },
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // 3. 動画の状態変化を監視（リピート再生のため）
+        function onPlayerStateChange(event) {
+            // 0 = YT.PlayerState.ENDED (再生終了)
+            if (event.data == YT.PlayerState.ENDED) {
+                player.playVideo(); // 再び再生（ループ）
+            }
+        }
+
+        // 4. 再生開始ボタンのクリックイベント
+        document.getElementById('playButton').addEventListener('click', function() {
+            var url = document.getElementById('youtubeUrl').value;
+            var videoId = extractVideoId(url);
+
+            if (videoId) {
+                player.loadVideoById(videoId);
+                player.unMute();
+            } else {
+                alert("有効なYouTubeのURLを入力してください。");
+            }
+        });
+
+        // 5. URLからYouTube動画IDを抽出する関数
+        function extractVideoId(url) {
+            var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            var match = url.match(regExp);
+            if (match && match[2].length == 11) {
+                return match[2];
+            } else {
+                return null;
+            }
+        }
+    </script>
+</body>
+</html>
