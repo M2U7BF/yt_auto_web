@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">  <title>YouTubeリピート再生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
     <style>
         /* (Style部分は変更なし) */
         body, html {
@@ -75,7 +78,8 @@
                     'controls': 0,
                     'rel': 0,
                     'showinfo': 0,
-                    'iv_load_policy': 3
+                    'iv_load_policy': 3,
+                    'playsinline': 1
                 },
                 events: {
                     'onStateChange': onPlayerStateChange
