@@ -1,19 +1,19 @@
 # youtube動画を自動リピートするツール
 
 ## 使い方
-1. webページのホスティング
+１）webページのホスティング
 ```
 // 以下のように任意のサーバーでindex.htmlをホスティングする。
 https://m2u7bf.github.io/yt_auto_web/index.html?url={動画URL}
 ```
 
-https://m2u7bf.github.io/yt_auto_web/index.html?url=
 
-2. ページの表示
-3. URLの入力
+２） ページの表示
+https://github.com/M2U7BF/yt_auto_web/blob/main/readme/Screenshot%20from%202025-11-11%2014-45-51.png
 
+３）URLの入力
 
-4. 再生開始
+４）再生開始
 
 ### 機能
 - `url`クエリに指定のURLを入れてページを表示すると、jsでそれを読み込み、URL入力欄に自動入力する。
