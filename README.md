@@ -7,8 +7,12 @@
 https://m2u7bf.github.io/yt_auto_web/index.html?url={動画URL}
 ```
 
+https://m2u7bf.github.io/yt_auto_web/index.html?url=
+
 2. ページの表示
 3. URLの入力
+
+
 4. 再生開始
 
 ### 機能
