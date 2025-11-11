@@ -9,13 +9,13 @@ https://m2u7bf.github.io/yt_auto_web/index.html?url={動画URL}
 
 
 ２） ページの表示
-https://github.com/M2U7BF/yt_auto_web/blob/main/readme/Screenshot%20from%202025-11-11%2014-45-51.png
+![](https://github.com/M2U7BF/yt_auto_web/blob/main/readme/Screenshot%20from%202025-11-11%2014-45-51.png)
 
 ３）URLの入力
-https://github.com/M2U7BF/yt_auto_web/blob/main/readme/Screenshot%20from%202025-11-11%2014-50-02.png
+![](https://github.com/M2U7BF/yt_auto_web/blob/main/readme/Screenshot%20from%202025-11-11%2014-50-02.png)
 
 ４）再生開始
-https://github.com/M2U7BF/yt_auto_web/blob/main/readme/Screenshot%20from%202025-11-11%2014-50-39.png
+![](https://github.com/M2U7BF/yt_auto_web/blob/main/readme/Screenshot%20from%202025-11-11%2014-50-39.png)
 
 ### 機能
 - `url`クエリに指定のURLを入れてページを表示すると、jsでそれを読み込み、URL入力欄に自動入力する。
