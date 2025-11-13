@@ -8,14 +8,14 @@ https://m2u7bf.github.io/yt-loop-player/index.html
 * 作業用BGMの無限リピート再生
 
 ## 使い方
-１） ページの表示
+１） ページの表示<br>
 <img src="https://github.com/M2U7BF/yt-loop-player/blob/main/readme/Screenshot%20from%202025-11-11%2014-45-51.png" width="500px">
 
-２）URLの入力
-<img src="https://github.com/M2U7BF/yt-loop-player/blob/main/readme/Screenshot%20from%202025-11-11%2014-50-02.png width="500px">
+２）URLの入力<br>
+<img src="https://github.com/M2U7BF/yt-loop-player/blob/main/readme/Screenshot%20from%202025-11-11%2014-50-02.png" width="500px">
 
-３）再生ボタンを押す
-<img src="https://github.com/M2U7BF/yt-loop-player/blob/main/readme/Screenshot%20from%202025-11-11%2014-50-39.png width="500px">
+３）再生ボタンを押す<br>
+<img src="https://github.com/M2U7BF/yt-loop-player/blob/main/readme/Screenshot%20from%202025-11-11%2014-50-39.png" width="500px">
 
 ## 注意点
 * 動画の停止は停止ボタンから行ってください。簡易的にバックグラウンド再生に対応した関係でiframeのクリックでは停止できません。
