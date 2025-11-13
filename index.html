@@ -35,14 +35,10 @@
     }
 
     #playButton {
-      font-size: 16px;
-      padding: 8px 15px;
       cursor: pointer;
     }
 
     #stopButton {
-      font-size: 16px;
-      padding: 8px 15px;
       cursor: pointer;
     }
 
@@ -77,11 +73,13 @@
       border: 2px solid black;
       color: black;
       background: 0 0;
-      padding: 8px;
+      padding: 6px 12px;
       box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
       font-size: 16px;
       height: 42px;
       margin-left: 5px;
+      width: auto;
+      white-space: nowrap;
     }
 
     button.btn_10:hover {
@@ -95,7 +93,7 @@
 
   <div id="controls">
     <input type="text" id="youtubeUrl" class="input_1" placeholder="YouTube動画のURLを入力">
-    <button id="playButton" class="btn_10">再生開始</button>
+    <button id="playButton" class="btn_10">再生</button>
     <button id="stopButton" class="btn_10">停止</button>
   </div>
 

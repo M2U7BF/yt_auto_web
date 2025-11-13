@@ -11,7 +11,6 @@ https://m2u7bf.github.io/yt_auto_web/index.html
 https://m2u7bf.github.io/yt_auto_web/index.html?url={動画URL}
 ```
 
-
 ２） ページの表示
 ![](https://github.com/M2U7BF/yt_auto_web/blob/main/readme/Screenshot%20from%202025-11-11%2014-45-51.png)
 
@@ -21,13 +20,13 @@ https://m2u7bf.github.io/yt_auto_web/index.html?url={動画URL}
 ４）再生開始
 ![](https://github.com/M2U7BF/yt_auto_web/blob/main/readme/Screenshot%20from%202025-11-11%2014-50-39.png)
 
-### 機能
+## 注意点
+- 動画の停止は停止ボタンから行ってください。簡易的にバックグラウンド再生に対応した関係でiframeのクリックでは停止できません。
+
+## 機能
 - `url`クエリに指定のURLを入れてページを表示すると、jsでそれを読み込み、URL入力欄に自動入力する。
 - ブラウザを開くだけなので、pc,モバイルの双方に対応。
 - モバイルの対応ブラウザ（Brave等）でのバックグラウンド再生
-
-## 課題
-- 
 
 ## 開発経緯
 - 作業BGMで無限再生するツールがほしかった。
