@@ -75,6 +75,9 @@ document.getElementById('playButton').addEventListener('click', function () {
     player.loadVideoById(videoId);
     player.unMute();
     updateButtonDisplay(true);
+
+    // 履歴に追加
+    addHistory(url);
   } else {
     alert("有効なYouTubeのURLを入力してください。");
   }
