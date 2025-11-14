@@ -6,7 +6,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player; // playerオブジェクトをグローバルで保持
 
-window.addEventListener('load', function () {
+function inputUrlFromQuery() {
   var urlParams = new URLSearchParams(window.location.search);
   var urlFromParam = urlParams.get('url'); // 'url'パラメータの値を取得
   var urlInput = document.getElementById('youtubeUrl');
@@ -14,10 +14,10 @@ window.addEventListener('load', function () {
   if (urlFromParam) {
     // デコードして入力欄にセット
     urlInput.value = decodeURIComponent(urlFromParam);
-    document.getElementById('playButton').click();
+    return true;
   }
-});
-// ----------------------------------------------------
+  return false;
+}
 
 // 2. API準備完了時にプレーヤーを初期化
 function onYouTubeIframeAPIReady() {
@@ -32,9 +32,16 @@ function onYouTubeIframeAPIReady() {
       'playsinline': 1
     },
     events: {
+      'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
     }
   });
+}
+
+function onPlayerReady(event) {
+  if (inputUrlFromQuery()) {
+    document.getElementById('playButton').click();
+  }
 }
 
 // 3. 動画の状態変化を監視（リピート再生のため）
