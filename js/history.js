@@ -1,7 +1,7 @@
 const input = document.getElementById("youtubeUrl");
 const historyList = document.getElementById("historyList");
 
-const STORAGE_KEY = "inputHistory";
+const STORAGE_KEY = "ytHistory";
 const MAX_HISTORY = 5;
 
 // 履歴を取得
@@ -14,17 +14,32 @@ function saveHistory(history) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
 }
 
+async function fetchYoutubeTitle(url) {
+  try {
+    const api = `https://www.youtube.com/oembed?url=${encodeURIComponent(url)}&format=json`;
+    const res = await fetch(api);
+    if (!res.ok) return null; // URL不正など
+    const data = await res.json();
+    return data.title;
+  } catch {
+    return null;
+  }
+}
+
 // 入力を履歴に追加（重複排除・新しいものを先頭へ）
-function addHistory(value) {
+async function addHistory(url) {
   let history = loadHistory();
 
-  // 既存の同じ値を削除
-  history = history.filter(item => item !== value);
+  // 既存項目削除（URL一致で重複扱い）
+  history = history.filter(item => item.url !== url);
 
-  // 先頭に追加
-  history.unshift(value);
+  // タイトル取得
+  const title = await fetchYoutubeTitle(url) || "（タイトル取得失敗）";
 
-  // 最大5件に制限
+  // 新しい履歴を追加（最新を先頭）
+  history.unshift({ url, title });
+
+  // 5件まで
   history = history.slice(0, MAX_HISTORY);
 
   saveHistory(history);
@@ -33,7 +48,6 @@ function addHistory(value) {
 // 履歴を描画
 function renderHistory() {
   const history = loadHistory();
-
   if (history.length === 0) {
     historyList.classList.add("hidden");
     return;
@@ -42,10 +56,10 @@ function renderHistory() {
   historyList.innerHTML = "";
   history.forEach(item => {
     const li = document.createElement("li");
-    li.textContent = item;
+    li.textContent = item.title;  // タイトル表示
 
     li.addEventListener("click", () => {
-      input.value = item;
+      input.value = item.url;   // URLをinputにセット
       historyList.classList.add("hidden");
     });
 
@@ -57,9 +71,9 @@ function renderHistory() {
 
 // 入力確定時（Enter または blur）に履歴追加
 input.addEventListener("change", () => {
-  const value = input.value.trim();
-  if (value) {
-    addHistory(value);
+  const urlText = input.value.trim();
+  if (urlText) {
+    addHistory(urlText);
   }
 });
 
