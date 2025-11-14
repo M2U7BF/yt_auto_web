@@ -46,11 +46,14 @@ function onPlayerReady(event) {
 
 // 3. 動画の状態変化を監視（リピート再生のため）
 function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING) {
+  if (event.data == -1) {
+    var url = document.getElementById('youtubeUrl').value;
+    addHistory(url);
+  }
+  else if (event.data == YT.PlayerState.PLAYING) {
     updateButtonDisplay(true);
   }
-  // 0 = YT.PlayerState.ENDED (再生終了)
-  if (event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED) {
+  else if (event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED) {
     player.playVideo(); // 再び再生（ループ）
   }
   hiddenHistory();
@@ -77,9 +80,6 @@ document.getElementById('playButton').addEventListener('click', function () {
   if (videoId) {
     player.loadVideoById(videoId);
     player.unMute();
-
-    // 履歴に追加
-    addHistory(url);
   } else {
     alert("有効なYouTubeのURLを入力してください。");
   }
