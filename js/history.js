@@ -82,6 +82,10 @@ input.addEventListener("focus", () => {
   renderHistory();
 });
 
+function hiddenHistory() {
+  historyList.classList.add("hidden");
+}
+
 // input 以外をクリックしたら履歴を閉じる
 document.addEventListener("click", (e) => {
   if (!input.contains(e.target) && !historyList.contains(e.target)) {

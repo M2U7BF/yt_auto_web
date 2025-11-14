@@ -42,6 +42,7 @@ function onPlayerStateChange(event) {
   if (event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED) {
     player.playVideo(); // 再び再生（ループ）
   }
+  hiddenHistory();
 }
 
 // ボタンの表示切り替え
