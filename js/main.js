@@ -46,6 +46,9 @@ function onPlayerReady(event) {
 
 // 3. 動画の状態変化を監視（リピート再生のため）
 function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING) {
+    updateButtonDisplay(true);
+  }
   // 0 = YT.PlayerState.ENDED (再生終了)
   if (event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED) {
     player.playVideo(); // 再び再生（ループ）
@@ -74,7 +77,6 @@ document.getElementById('playButton').addEventListener('click', function () {
   if (videoId) {
     player.loadVideoById(videoId);
     player.unMute();
-    updateButtonDisplay(true);
 
     // 履歴に追加
     addHistory(url);
