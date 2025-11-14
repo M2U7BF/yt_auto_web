@@ -12,7 +12,10 @@
 
 <body>
   <div id="controls">
-    <input style="width: 50%;" type="text" id="youtubeUrl" class="input_1" placeholder="YouTube動画のURLを入力" autocomplete="off">
+    <div class="input-wrapper">
+      <input style="width: 100%;" type="text" id="youtubeUrl" class="input_1" placeholder="YouTube動画のURLを入力" autocomplete="off">
+      <ul id="historyList" class="hidden"></ul>
+    </div>
     <button id="playButton" class="btn_10">再生</button>
     <button id="stopButton" class="btn_10">停止</button>
   </div>
@@ -20,6 +23,7 @@
   <div id="player"></div>
 
    <script src="js/main.js"></script>
+   <script src="js/history.js"></script>
 </body>
 
 </html>

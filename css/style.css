@@ -71,3 +71,40 @@ button.btn_10:hover {
   background-color: #606060;
   color: #fff;
 }
+
+/* 履歴リストとinput欄のスタイル */
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* 履歴リスト */
+#historyList {
+  color: white;
+  border: 1px solid #303030;
+  border-radius: 6px;
+  width: 100%;
+  padding: 0;
+  margin-top: 4px;
+  list-style: none;
+  background: #212121;
+  position: absolute;
+  top: 100%;
+  z-index: 1000;
+}
+
+#historyList li {
+  padding: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#historyList li:hover {
+  background: #606060;
+}
+
+.hidden {
+  display: none;
+}
