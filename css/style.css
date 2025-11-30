@@ -91,6 +91,15 @@ button.btn_10:hover {
   position: absolute;
   top: 100%;
   z-index: 1000;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+#historyList::-webkit-scrollbar {
+  width: 6px;
+}
+#historyList::-webkit-scrollbar-thumb {
+  background-color: #929292;
+  border-radius: 8px;
 }
 @media(max-width:750px) {
   #historyList {

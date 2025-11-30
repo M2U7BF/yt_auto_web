@@ -2,7 +2,7 @@ const input = document.getElementById("youtubeUrl");
 const historyList = document.getElementById("historyList");
 
 const STORAGE_KEY = "ytHistory";
-const MAX_HISTORY = 5;
+const MAX_HISTORY = 20;
 
 // 履歴を取得
 function loadHistory() {
