@@ -11,6 +11,9 @@ function inputUrlFromQuery() {
   var urlFromParam = urlParams.get('url'); // 'url'パラメータの値を取得
   var urlInput = document.getElementById('youtubeUrl');
 
+  if (urlInput.value) {
+    return false;
+  }
   if (urlFromParam) {
     // デコードして入力欄にセット
     urlInput.value = decodeURIComponent(urlFromParam);
